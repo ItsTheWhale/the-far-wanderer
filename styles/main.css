@@ -1,0 +1,50 @@
+/* Body */
+body {
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+    font-family: monospace;
+    text-align: center;
+}
+
+body.dark {
+    background-color: #2b2b2b;
+    color: white;
+}
+
+/* Main */
+div#main {
+    font-size: 1.7rem;
+    background-color: #424242;
+    width: 70%;
+    margin: 2rem;
+    padding: 3rem;
+    text-align: left;
+}
+
+/* Story Text */
+div#storyText {
+    text-align: left;
+}
+
+/* Story Action */
+.action {
+    color: wheat;
+    margin-top: 1.5rem;
+}
+
+/* Nav bar */
+nav.bottom {
+    position: fixed;
+    display: flex;
+    padding: 1rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #212121;
+}
+
+.nav-button {
+    font-size: 1.4rem;
+    margin-right: 30px;
+}
