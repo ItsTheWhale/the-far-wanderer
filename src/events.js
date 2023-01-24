@@ -77,4 +77,28 @@ export const events = {
             }
         ]
     },
+    begin_4: {
+        text: function (game) {
+            return `The storm rages on unabated.
+            Water starts to drip from the cracked concrete ceiling, evidence of its disrepair.
+            A sudden downpour forces a torrent of water into the room through the open door.
+            You quickly shut the door, but only after the floodwater smothers most of the fire.
+            Deprived of the outside light, the only thing you can see is the faint glow of the reviving fireplace.
+            It will soon be over.`;
+        },
+        actions: [
+            {
+                name: function (game) {
+                    return "stoke the fire";
+                },
+                action: function (game) {
+                    game.resources.wood--;
+                    return {
+                        game,
+                        nextEvent: "begin_5"
+                    };
+                }
+            }
+        ]
+    },
 };
