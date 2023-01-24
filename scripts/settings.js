@@ -1,1 +1,4 @@
-"use strict";
+export let gameDefaults = {
+    started: false
+};
+;
