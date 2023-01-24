@@ -5,7 +5,7 @@
   "main": "none",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx esbuild src/main.js --bundle --outfile=script.js"
+    "build": "tsc && npx esbuild src/main.js --bundle --outfile=script.js"
   },
   "repository": {
     "type": "git",

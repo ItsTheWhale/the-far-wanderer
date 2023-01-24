@@ -7,11 +7,13 @@ Object.assign(game, gameDefaults);
 $("#buttonReset").click(() => {
     Object.assign(game, gameDefaults);
     console.log("Game resetted");
+    window.location.reload();
 });
 // Settings
 Object.assign(game, loadGame());
 // Events 
 function loadEvent(event) {
+    console.log(event);
     $("#storyText").text(event.text());
     $("#storyActions").html("");
     for (const i in event.actions) {
@@ -20,10 +22,11 @@ function loadEvent(event) {
             .click(() => {
             const action = event.actions[i].action(game);
             game = action.game;
-            loadEvent(action.nextEvent);
+            // @ts-ignore
+            loadEvent(events[action.nextEvent]);
         }));
     }
 }
 if (!game.started) {
-    loadEvent(events.begin);
+    loadEvent(events.begin_1);
 }
