@@ -52,9 +52,37 @@ export const events = {
                     game: gameStruct,
                     nextEvent: any
                 } {
+                    game.resources.wood = 5;
                     return {
                         game,
                         nextEvent: "begin_3"
+                    }
+                }
+            }
+        ]
+    },
+    begin_3: {
+        text: function (game: gameStruct): string {
+            return `You rub two pieces of wood together to light a fire. 
+            You throw a piece of wood into the smoking tinder, and the licking tongues of flame grab it.
+            Using the faint light of the flickering fire, you gather the remaining pieces of wood.
+            You count 5 in total.
+            The wind is still howling outside, and the rain bashing every inch of the land. 
+            You decide it is too dangerous to gather more wood outside.`;
+        },
+        actions: [
+            {
+                name: function (game: gameStruct): string {
+                    return "stoke the fire";
+                },
+                action: function (game: gameStruct): {
+                    game: gameStruct,
+                    nextEvent: any
+                } {
+                    game.resources.wood--;
+                    return {
+                        game,
+                        nextEvent: "begin_4"
                     }
                 }
             }

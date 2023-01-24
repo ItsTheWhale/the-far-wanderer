@@ -47,9 +47,34 @@
             return "stoke the fire";
           },
           action: function(game2) {
+            game2.resources.wood = 5;
             return {
               game: game2,
               nextEvent: "begin_3"
+            };
+          }
+        }
+      ]
+    },
+    begin_3: {
+      text: function(game2) {
+        return `You rub two pieces of wood together to light a fire. 
+            You throw a piece of wood into the smoking tinder, and the licking tongues of flame grab it.
+            Using the faint light of the flickering fire, you gather the remaining pieces of wood.
+            You count 5 in total.
+            The wind is still howling outside, and the rain bashing every inch of the land. 
+            You decide it is too dangerous to gather more wood outside.`;
+      },
+      actions: [
+        {
+          name: function(game2) {
+            return "stoke the fire";
+          },
+          action: function(game2) {
+            game2.resources.wood--;
+            return {
+              game: game2,
+              nextEvent: "begin_4"
             };
           }
         }
@@ -59,7 +84,10 @@
 
   // src/settings.js
   var gameDefaults = {
-    started: false
+    started: false,
+    resources: {
+      wood: 2
+    }
   };
 
   // src/save.js
