@@ -5,7 +5,7 @@ export const events = {
             The room is cold and dark, and you feed a persistent, throbbing pain in your head. 
             You don't remember where you are, nor how you got here. 
             As you sit up, you feel a hard, rounded object in your pocket.
-            A pendant. It is made out of a strange, translucent green stone that emits a faint glow in the dark. 
+            A pendant. It is made out of a strange, translucent green stone that emits a faint, almost otherworldly glow in the dark. 
             You turn the pendant around. Engraved on the pendant is an insignia, the elegant twirling lines tracing shapes on the stone. 
             You cannot describe how it exactly looks, but it feels strangely familiar yet distant, as if you have seen it somewhere before.
             Holding the pendant in your palm, you seem to feel a constant trickle of warmth flowing into your hand. 
@@ -44,7 +44,7 @@ export const events = {
                     return "stoke the fire";
                 },
                 action: function (game) {
-                    game.resources.wood = 5;
+                    game.resources.wood = 4;
                     return {
                         game,
                         nextEvent: "begin_3"
@@ -99,6 +99,39 @@ export const events = {
                     };
                 }
             }
+        ]
+    },
+    begin_5: {
+        text: function (game) {
+            return `The fire is flickering. 
+            You reach for more wood, but only one piece is left.
+            You are hesitating whether to throw it in, or save it for later.
+            `;
+        },
+        actions: [
+            {
+                name: function (game) {
+                    return "stoke the fire";
+                },
+                action: function (game) {
+                    game.resources.wood--;
+                    return {
+                        game,
+                        nextEvent: "begin_6_burn"
+                    };
+                }
+            },
+            {
+                name: function (game) {
+                    return "pocket the wood";
+                },
+                action: function (game) {
+                    return {
+                        game,
+                        nextEvent: "begin_6_noburn"
+                    };
+                }
+            },
         ]
     },
 };

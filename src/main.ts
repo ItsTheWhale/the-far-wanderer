@@ -20,7 +20,6 @@ Object.assign(game, loadGame());
 // Events 
 
 function loadEvent(event: eventStruct): void {
-    console.log(event)
     $("#storyText").text(event.text());
     $("#storyActions").html("");
     for (const i in event.actions) {
@@ -30,6 +29,7 @@ function loadEvent(event: eventStruct): void {
                 .click(() => {
                     const action = event.actions[i].action(game);
                     game = action.game;
+                    console.log(game);
                     // @ts-ignore
                     loadEvent(events[action.nextEvent]);
                 })

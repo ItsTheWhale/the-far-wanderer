@@ -13,7 +13,6 @@ $("#buttonReset").click(() => {
 Object.assign(game, loadGame());
 // Events 
 function loadEvent(event) {
-    console.log(event);
     $("#storyText").text(event.text());
     $("#storyActions").html("");
     for (const i in event.actions) {
@@ -22,6 +21,7 @@ function loadEvent(event) {
             .click(() => {
             const action = event.actions[i].action(game);
             game = action.game;
+            console.log(game);
             // @ts-ignore
             loadEvent(events[action.nextEvent]);
         }));
