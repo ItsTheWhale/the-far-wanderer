@@ -126,12 +126,81 @@
         },
         {
           name: function(game2) {
-            return "pocket the wood";
+            return "save the wood";
           },
           action: function(game2) {
             return {
               game: game2,
               nextEvent: "begin_6_noburn"
+            };
+          }
+        }
+      ]
+    },
+    begin_6_burn: {
+      text: function(game2) {
+        return `You give in to the urge and throw your final piece of wood into the fireplace.
+            The fire glows brightly at new fuel.
+            Outside, the torrent of rain is slowing down, the storm abating.
+            It is now possible to leave the shelter without too much danger.
+            Shivering at the damp cold air, you lean closer to the roaring fire.
+            Perhaps burning the wood was worth it after all.
+            `;
+      },
+      actions: [
+        {
+          name: function(game2) {
+            return "wait a while";
+          },
+          action: function(game2) {
+            return {
+              game: game2,
+              nextEvent: "begin_7_stay"
+            };
+          }
+        },
+        {
+          name: function(game2) {
+            return "leave the house";
+          },
+          action: function(game2) {
+            return {
+              game: game2,
+              nextEvent: "begin_7_leave"
+            };
+          }
+        }
+      ]
+    },
+    begin_6_noburn: {
+      text: function(game2) {
+        return `You resist the temptation and pocket the piece of wood.
+            Outside, the torrent of rain is slowing down, the storm abating.
+            It is now possible to leave the shelter without too much danger.
+            Although you are shivering at the cold, damp air, you have backup fuel in times of need.
+            Perhaps saving the wood was worth it after all.
+            `;
+      },
+      actions: [
+        {
+          name: function(game2) {
+            return "wait a while";
+          },
+          action: function(game2) {
+            return {
+              game: game2,
+              nextEvent: "begin_7_stay"
+            };
+          }
+        },
+        {
+          name: function(game2) {
+            return "leave the house";
+          },
+          action: function(game2) {
+            return {
+              game: game2,
+              nextEvent: "begin_7_leave"
             };
           }
         }
