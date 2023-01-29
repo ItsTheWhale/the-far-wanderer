@@ -205,6 +205,95 @@
           }
         }
       ]
+    },
+    begin_7_stay: {
+      text: function(game2) {
+        return `
+            The rain is stopping. Mild rays of sunshine glow through the clouds.
+            You feel that it is time to explore your surroundings.
+            `;
+      },
+      actions: [
+        {
+          name: function(game2) {
+            return "leave";
+          },
+          action: function(game2) {
+            return {
+              game: game2,
+              nextEvent: "begin_8"
+            };
+          }
+        }
+      ]
+    },
+    begin_7_leave: {
+      text: function(game2) {
+        return `You carefully step outside into the rain.
+            Although you are soaked, the rain is much weaker than before.
+            You look around. You see structures scattered amongst the rubble, survivors of the destruction.
+            The mist is too strong, casting a gray blur over everything.
+            It is hard to see anything without getting close.
+            `;
+      },
+      actions: [
+        {
+          name: function(game2) {
+            return "explore the center";
+          },
+          action: function(game2) {
+            return {
+              game: game2,
+              nextEvent: "explorevillage_1_center"
+            };
+          }
+        },
+        {
+          name: function(game2) {
+            return "explore the edges";
+          },
+          action: function(game2) {
+            return {
+              game: game2,
+              nextEvent: "explorevillage_1_edges"
+            };
+          }
+        }
+      ]
+    },
+    begin_8: {
+      text: function(game2) {
+        return `You carefully step outside. 
+            The rain has stopped, but any sunshine that penetrates the thick clouds warm little.
+            A heavy mist covers the settlement, blinding everything in view.
+            You look around. You see structures scattered amongst the rubble, survivors of the destruction.
+            It is hard to see anything without getting close.
+            `;
+      },
+      actions: [
+        {
+          name: function(game2) {
+            return "explore the center";
+          },
+          action: function(game2) {
+            return {
+              game: game2,
+              nextEvent: "explorevillage_1_center"
+            };
+          }
+        },
+        {
+          name: function(game2) {
+            return "explore the edges";
+          },
+          action: function(game2) {
+            return {
+              game: game2,
+              nextEvent: "explorevillage_1_edges"
+            };
+          }
+        }
+      ]
     }
   };
 
