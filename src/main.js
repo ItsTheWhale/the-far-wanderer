@@ -28,5 +28,6 @@ function loadEvent(event) {
     }
 }
 if (!game.started) {
+    // @ts-ignore
     loadEvent(events.begin_1);
 }

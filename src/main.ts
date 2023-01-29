@@ -38,5 +38,6 @@ function loadEvent(event: eventStruct): void {
 }
 
 if (!game.started) {
+    // @ts-ignore
     loadEvent(events.begin_1);
 }
