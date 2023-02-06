@@ -401,30 +401,40 @@
   };
 
   // src/save.js
+  function saveGame(game2) {
+    window.localStorage.setItem("game", JSON.stringify(game2));
+  }
   function loadGame() {
-    var _a;
-    return (_a = window.localStorage.getItem("game")) !== null && _a !== void 0 ? _a : gameDefaults;
+    var _a2;
+    return (_a2 = window.localStorage.getItem("game")) !== null && _a2 !== void 0 ? _a2 : gameDefaults;
   }
 
   // src/main.js
+  var _a;
   var game = gameDefaults;
   Object.assign(game, gameDefaults);
-  $("#buttonReset").click(() => {
+  (_a = document.getElementById("buttonReset")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
     Object.assign(game, gameDefaults);
+    saveGame(game);
     console.log("Game resetted");
     window.location.reload();
   });
   Object.assign(game, loadGame());
   function loadEvent(event) {
-    $("#storyText").text(event.text());
-    $("#storyActions").html("");
+    document.getElementById("storyText").innerText = event.text();
+    const storyActions = document.getElementById("storyActions");
+    storyActions.innerHTML = "";
     for (const i in event.actions) {
-      $("#storyActions").append($('<div class="action"></div>').text(event.actions[i].name()).click(() => {
+      const actionElem = document.createElement("div");
+      actionElem.classList.add("action");
+      actionElem.innerText = event.actions[i].name();
+      actionElem.addEventListener("click", () => {
         const action = event.actions[i].action(game);
         game = action.game;
         console.log(game);
         loadEvent(events[action.nextEvent]);
-      }));
+      });
+      storyActions.appendChild(actionElem);
     }
   }
   if (!game.started) {

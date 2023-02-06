@@ -6,8 +6,9 @@ let game: gameStruct = gameDefaults;
 Object.assign(game, gameDefaults);
 
 // Nav
-$("#buttonReset").click(() => {
+document.getElementById("buttonReset")?.addEventListener("click", () => {
     Object.assign(game, gameDefaults);
+    saveGame(game);
     console.log("Game resetted");
     window.location.reload();
 });
@@ -20,20 +21,21 @@ Object.assign(game, loadGame());
 // Events 
 
 function loadEvent(event: eventStruct): void {
-    $("#storyText").text(event.text());
-    $("#storyActions").html("");
+    document.getElementById("storyText")!.innerText = event.text();
+    const storyActions = document.getElementById("storyActions") as HTMLDivElement;
+    storyActions.innerHTML = "";
     for (const i in event.actions) {
-        $("#storyActions").append(
-            $("<div class=\"action\"></div>")
-                .text(event.actions[i].name())
-                .click(() => {
-                    const action = event.actions[i].action(game);
-                    game = action.game;
-                    console.log(game);
-                    // @ts-ignore
-                    loadEvent(events[action.nextEvent]);
-                })
-        );
+        const actionElem = document.createElement("div");
+        actionElem.classList.add("action");
+        actionElem.innerText = event.actions[i].name();
+        actionElem.addEventListener("click", () => {
+            const action = event.actions[i].action(game);
+            game = action.game;
+            console.log(game);
+            // @ts-ignore
+            loadEvent(events[action.nextEvent]);
+        });
+        storyActions.appendChild(actionElem);
     }
 }
 
