@@ -5,7 +5,7 @@ export function saveGame(game: gameStruct): void {
 }
 
 export function loadGame(): gameStruct {
-    return (window.localStorage.getItem("game") ?? gameDefaults) as gameStruct;
+    return (JSON.parse(window.localStorage.getItem("game") ?? "{}") ?? structuredClone(gameDefaults)) as gameStruct;
 }
 
 export function exportGame(game: gameStruct): void {

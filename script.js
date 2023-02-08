@@ -405,16 +405,15 @@
     window.localStorage.setItem("game", JSON.stringify(game2));
   }
   function loadGame() {
-    var _a2;
-    return (_a2 = window.localStorage.getItem("game")) !== null && _a2 !== void 0 ? _a2 : gameDefaults;
+    var _a2, _b;
+    return (_b = JSON.parse((_a2 = window.localStorage.getItem("game")) !== null && _a2 !== void 0 ? _a2 : "{}")) !== null && _b !== void 0 ? _b : structuredClone(gameDefaults);
   }
 
   // src/main.js
   var _a;
-  var game = gameDefaults;
-  Object.assign(game, gameDefaults);
+  var game = structuredClone(gameDefaults);
   (_a = document.getElementById("buttonReset")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
-    Object.assign(game, gameDefaults);
+    game = structuredClone(gameDefaults);
     saveGame(game);
     console.log("Game resetted");
     window.location.reload();

@@ -2,12 +2,11 @@ import { events, eventStruct } from "./events.js";
 import { saveGame, loadGame, exportGame } from "./save.js";
 import { gameStruct, gameDefaults } from "./settings.js";
 
-let game: gameStruct = gameDefaults;
-Object.assign(game, gameDefaults);
+let game: gameStruct = structuredClone(gameDefaults);
 
 // Nav
 document.getElementById("buttonReset")?.addEventListener("click", () => {
-    Object.assign(game, gameDefaults);
+    game = structuredClone(gameDefaults);
     saveGame(game);
     console.log("Game resetted");
     window.location.reload();
