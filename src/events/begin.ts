@@ -132,6 +132,7 @@ export default {
                     nextEvent: any
                 } {
                     game.resources.wood--;
+                    game.resources.ash++;
                     return {
                         game,
                         nextEvent: "begin_6_burn"
@@ -161,6 +162,7 @@ export default {
         Outside, the torrent of rain is slowing down, the storm abating.
         It is now possible to leave the shelter without too much danger.
         Shivering at the damp cold air, you lean closer to the roaring fire.
+        Some ashes drift to the bottom of the fireplace. You decide to pocket it anyway.
         Perhaps burning the wood was worth it after all.
         `;
         },

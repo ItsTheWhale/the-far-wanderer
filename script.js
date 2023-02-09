@@ -118,6 +118,7 @@
           },
           action: function(game2) {
             game2.resources.wood--;
+            game2.resources.ash++;
             return {
               game: game2,
               nextEvent: "begin_6_burn"
@@ -144,6 +145,7 @@
         Outside, the torrent of rain is slowing down, the storm abating.
         It is now possible to leave the shelter without too much danger.
         Shivering at the damp cold air, you lean closer to the roaring fire.
+        Some ashes drift to the bottom of the fireplace. You decide to pocket it anyway.
         Perhaps burning the wood was worth it after all.
         `;
       },
@@ -396,7 +398,8 @@
   var gameDefaults = {
     started: false,
     resources: {
-      wood: 2
+      wood: 2,
+      ash: 0
     }
   };
 
