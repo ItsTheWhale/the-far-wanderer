@@ -14,13 +14,15 @@ let game = structuredClone(gameDefaults);
 Object.assign(game, loadGame());
 // Events 
 function loadEvent(event) {
-    document.getElementById("storyText").innerText = event.text();
+    document.getElementById("storyText").innerText = event.text(game);
     const storyActions = document.getElementById("storyActions");
     storyActions.innerHTML = "";
     for (const i in event.actions) {
+        if (event.actions[i].name(game) === "<void>")
+            continue;
         const actionElem = document.createElement("div");
         actionElem.classList.add("action");
-        actionElem.innerText = event.actions[i].name();
+        actionElem.innerText = event.actions[i].name(game);
         actionElem.addEventListener("click", () => {
             const action = event.actions[i].action(game);
             game = action.game;

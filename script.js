@@ -357,7 +357,7 @@
           action: function(game2) {
             return {
               game: game2,
-              nextEvent: "explorevillage_2_edges"
+              nextEvent: "explorevillage_3_spire"
             };
           }
         }
@@ -371,7 +371,7 @@
             You find a small old-fashioned two-story wooden house.
             It seems to be empty, probably abandoned during whatever apocalypse happened to this place.
             A dusty wooden door, paint peeling, hangs invitingly half-open.
-            The door creaks as you push open it and step in.`;
+            The door creaks as you push it open and step in.`;
       },
       actions: [
         {
@@ -381,7 +381,91 @@
           action: function(game2) {
             return {
               game: game2,
-              nextEvent: "explorevillage_2_edges"
+              nextEvent: "explorevillage_3_house"
+            };
+          }
+        }
+      ]
+    },
+    explorevillage_3_spire: {
+      text: function(game2) {
+        return `
+            The spire is obviously abandoned, the crumbling walls plastered with gray dust.
+            A long corridor stretches away into the shadows.
+            You find a small yellowed memento crudely stuck on the walls, its small black print fading to time.
+            You cannot read any of the illegible print, but you could with a pinch of ash${game2.resources.ash === 0 ? ", but you have none. Maybe come back later." : ". You reach into your pocket and fish out a handful of the powder. Lucky you burnt the wood earlier."}
+            You notice a small storage room on the side of a corridor. The combination lock is tight, but rusting at its heart.
+            You can hopefully prise it open with a fragment of wood${game2.resources.wood === 0 ? ", but you have none. Maybe come back later." : ". You reach into your pocket and fish out a small piece of wood. Lucky you didn't burn the wood earlier."}
+            `;
+      },
+      actions: [
+        {
+          name: function(game2) {
+            if (game2.resources.ash === 0)
+              return "<void>";
+            return "read the memento";
+          },
+          action: function(game2) {
+            game2.resources.ash--;
+            return {
+              game: game2,
+              nextEvent: "explorevillage_4_spire_memento"
+            };
+          }
+        },
+        {
+          name: function(game2) {
+            if (game2.resources.wood === 0)
+              return "<void>";
+            return "open the cabinet";
+          },
+          action: function(game2) {
+            game2.resources.wood--;
+            return {
+              game: game2,
+              nextEvent: "explorevillage_4_spire_storage"
+            };
+          }
+        }
+      ]
+    },
+    explorevillage_3_house: {
+      text: function(game2) {
+        return `
+            The old house is obviously abandoned, a thick layer of gray dust covering every surface.
+            In the center of the house is a crooked wooden table, nails rusting from disuse.
+            You find a small slip of yellowed paper weighted down on the table, its ink fading to time.
+            You cannot read any of the illegible ink, but you could with a pinch of ash${game2.resources.ash === 0 ? ", but you have none. Maybe come back later." : ". You reach into your pocket and fish out a handful of the powder. Lucky you burnt the wood earlier."}
+            In the corner of your eye, you notice a small cabinet. It seems to be locked tight, but the lock is flimsy.
+            You can hopefully prise it open with a fragment of wood${game2.resources.wood === 0 ? ", but you have none. Maybe come back later." : ". You reach into your pocket and fish out a small piece of wood. Lucky you didn't burn the wood earlier."}
+            `;
+      },
+      actions: [
+        {
+          name: function(game2) {
+            if (game2.resources.ash === 0)
+              return "<void>";
+            return "read the slip";
+          },
+          action: function(game2) {
+            game2.resources.ash--;
+            return {
+              game: game2,
+              nextEvent: "explorevillage_4_house_slip"
+            };
+          }
+        },
+        {
+          name: function(game2) {
+            if (game2.resources.wood === 0)
+              return "<void>";
+            return "open the cabinet";
+          },
+          action: function(game2) {
+            game2.resources.wood--;
+            return {
+              game: game2,
+              nextEvent: "explorevillage_4_house_cabinet"
             };
           }
         }
@@ -408,8 +492,8 @@
     window.localStorage.setItem("game", JSON.stringify(game2));
   }
   function loadGame() {
-    var _a2, _b;
-    return (_b = JSON.parse((_a2 = window.localStorage.getItem("game")) !== null && _a2 !== void 0 ? _a2 : "{}")) !== null && _b !== void 0 ? _b : structuredClone(gameDefaults);
+    var _a2;
+    return (_a2 = JSON.parse(window.localStorage.getItem("game") || "{}")) !== null && _a2 !== void 0 ? _a2 : structuredClone(gameDefaults);
   }
 
   // src/main.js
@@ -423,13 +507,15 @@
   });
   Object.assign(game, loadGame());
   function loadEvent(event) {
-    document.getElementById("storyText").innerText = event.text();
+    document.getElementById("storyText").innerText = event.text(game);
     const storyActions = document.getElementById("storyActions");
     storyActions.innerHTML = "";
     for (const i in event.actions) {
+      if (event.actions[i].name(game) === "<void>")
+        continue;
       const actionElem = document.createElement("div");
       actionElem.classList.add("action");
-      actionElem.innerText = event.actions[i].name();
+      actionElem.innerText = event.actions[i].name(game);
       actionElem.addEventListener("click", () => {
         const action = event.actions[i].action(game);
         game = action.game;
