@@ -1,10 +1,9 @@
-var _a;
 import { events } from "./events.js";
 import { saveGame, loadGame } from "./save.js";
 import { gameDefaults } from "./settings.js";
 let game = structuredClone(gameDefaults);
 // Nav
-(_a = document.getElementById("buttonReset")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
+document.getElementById("buttonReset")?.addEventListener("click", () => {
     game = structuredClone(gameDefaults);
     saveGame(game);
     console.log("Game resetted");

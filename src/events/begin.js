@@ -10,7 +10,7 @@ export default {
         You turn the pendant around. Engraved on the pendant is an insignia, the elegant twirling lines tracing shapes on the stone. 
         You cannot describe how it exactly looks, but it feels strangely familiar yet distant, as if you have seen it somewhere before.
         Holding the pendant in your palm, you seem to feel a constant trickle of warmth flowing into your hand. 
-        Or maybe it is just your imagination.`;
+        Or maybe it is just your imagination.`.replaceAll('\n', "");
         },
         actions: [
             {
@@ -38,7 +38,7 @@ export default {
         It is night, and rain is pouring down, and the few stars that still shine through the clouds illuminate little.
         The faint and flickering rays of starlight seep into the windowless room.
         It is empty except for a lone bed and dusty fireplace, with a few time-darkened pieces of wood scattered on the floor.
-        The rain is too strong to leave the house now.`;
+        The rain is too strong to leave the house now.`.replaceAll('\n', "");
         },
         actions: [
             {
@@ -63,7 +63,7 @@ export default {
         Using the faint light of the flickering fire, you gather the remaining pieces of wood.
         You count 5 in total.
         The wind is still howling outside, and the rain bashing every inch of the land. 
-        You decide it is too dangerous to gather more wood outside.`;
+        You decide it is too dangerous to gather more wood outside.`.replaceAll('\n', "");
         },
         actions: [
             {
@@ -88,7 +88,7 @@ export default {
         A sudden downpour forces a torrent of water into the room through the open door.
         You quickly shut the door, but only after the floodwater smothers most of the fire.
         Deprived of the outside light, the only thing you can see is the faint glow of the reviving fireplace.
-        It will soon be over.`;
+        It will soon be over.`.replaceAll('\n', "");
         },
         actions: [
             {
@@ -111,7 +111,7 @@ export default {
             return `The fire is flickering. 
         You reach for more wood, but only one piece is left.
         You are hesitating whether to throw it in, or save it for later.
-        `;
+        `.replaceAll('\n', "");
         },
         actions: [
             {
@@ -150,7 +150,7 @@ export default {
         Shivering at the damp cold air, you lean closer to the roaring fire.
         Some ashes drift to the bottom of the fireplace. You decide to pocket it anyway.
         Perhaps burning the wood was worth it after all.
-        `;
+        `.replaceAll('\n', "");
         },
         actions: [
             {
@@ -185,7 +185,7 @@ export default {
         It is now possible to leave the shelter without too much danger.
         Although you are shivering at the cold, damp air, you have backup fuel in times of need.
         Perhaps saving the wood was worth it after all.
-        `;
+        `.replaceAll('\n', "");
         },
         actions: [
             {
@@ -218,7 +218,7 @@ export default {
             return `
         The rain is stopping. Mild rays of sunshine glow through the clouds.
         You feel that it is time to explore your surroundings.
-        `;
+        `.replaceAll('\n', "");
         },
         actions: [
             {
@@ -242,7 +242,7 @@ export default {
         You look around. You see structures scattered amongst the rubble, survivors of the destruction.
         The mist is too strong, casting a gray blur over everything.
         It is hard to see anything without getting close.
-        `;
+        `.replaceAll('\n', "");
         },
         actions: [
             {
@@ -277,7 +277,7 @@ export default {
         A heavy mist covers the settlement, blinding everything in view.
         You look around. You see structures scattered amongst the rubble, survivors of the destruction.
         It is hard to see anything without getting close.
-        `;
+        `.replaceAll('\n', "");
         },
         actions: [
             {

@@ -13,7 +13,7 @@
         You turn the pendant around. Engraved on the pendant is an insignia, the elegant twirling lines tracing shapes on the stone. 
         You cannot describe how it exactly looks, but it feels strangely familiar yet distant, as if you have seen it somewhere before.
         Holding the pendant in your palm, you seem to feel a constant trickle of warmth flowing into your hand. 
-        Or maybe it is just your imagination.`;
+        Or maybe it is just your imagination.`.replaceAll("\n", "");
       },
       actions: [
         {
@@ -41,7 +41,7 @@
         It is night, and rain is pouring down, and the few stars that still shine through the clouds illuminate little.
         The faint and flickering rays of starlight seep into the windowless room.
         It is empty except for a lone bed and dusty fireplace, with a few time-darkened pieces of wood scattered on the floor.
-        The rain is too strong to leave the house now.`;
+        The rain is too strong to leave the house now.`.replaceAll("\n", "");
       },
       actions: [
         {
@@ -66,7 +66,7 @@
         Using the faint light of the flickering fire, you gather the remaining pieces of wood.
         You count 5 in total.
         The wind is still howling outside, and the rain bashing every inch of the land. 
-        You decide it is too dangerous to gather more wood outside.`;
+        You decide it is too dangerous to gather more wood outside.`.replaceAll("\n", "");
       },
       actions: [
         {
@@ -91,7 +91,7 @@
         A sudden downpour forces a torrent of water into the room through the open door.
         You quickly shut the door, but only after the floodwater smothers most of the fire.
         Deprived of the outside light, the only thing you can see is the faint glow of the reviving fireplace.
-        It will soon be over.`;
+        It will soon be over.`.replaceAll("\n", "");
       },
       actions: [
         {
@@ -114,7 +114,7 @@
         return `The fire is flickering. 
         You reach for more wood, but only one piece is left.
         You are hesitating whether to throw it in, or save it for later.
-        `;
+        `.replaceAll("\n", "");
       },
       actions: [
         {
@@ -153,7 +153,7 @@
         Shivering at the damp cold air, you lean closer to the roaring fire.
         Some ashes drift to the bottom of the fireplace. You decide to pocket it anyway.
         Perhaps burning the wood was worth it after all.
-        `;
+        `.replaceAll("\n", "");
       },
       actions: [
         {
@@ -188,7 +188,7 @@
         It is now possible to leave the shelter without too much danger.
         Although you are shivering at the cold, damp air, you have backup fuel in times of need.
         Perhaps saving the wood was worth it after all.
-        `;
+        `.replaceAll("\n", "");
       },
       actions: [
         {
@@ -221,7 +221,7 @@
         return `
         The rain is stopping. Mild rays of sunshine glow through the clouds.
         You feel that it is time to explore your surroundings.
-        `;
+        `.replaceAll("\n", "");
       },
       actions: [
         {
@@ -245,7 +245,7 @@
         You look around. You see structures scattered amongst the rubble, survivors of the destruction.
         The mist is too strong, casting a gray blur over everything.
         It is hard to see anything without getting close.
-        `;
+        `.replaceAll("\n", "");
       },
       actions: [
         {
@@ -280,7 +280,7 @@
         A heavy mist covers the settlement, blinding everything in view.
         You look around. You see structures scattered amongst the rubble, survivors of the destruction.
         It is hard to see anything without getting close.
-        `;
+        `.replaceAll("\n", "");
       },
       actions: [
         {
@@ -316,7 +316,7 @@
       text: function(game2) {
         return `You walk slowly to the heart of the village. 
             As you go on, houses become bigger and more intact.
-            A large monolithic spire of stone materialises from the deep fog, a monument of the forgotten past.`;
+            A large monolithic spire of stone materialises from the deep fog, a monument of the forgotten past.`.replaceAll("\n", "");
       },
       actions: [
         {
@@ -337,7 +337,7 @@
       text: function(game2) {
         return `You walk away from the center of the village.
             Survived structures become scarcer and smaller, until the sandy floor gives away to an endless plain of grass.
-            Out here, only a few structures stand, scattered far along the parched landscape.`;
+            Out here, only a few structures stand, scattered far along the parched landscape.`.replaceAll("\n", "");
       },
       actions: [
         {
@@ -360,7 +360,7 @@
             The elements have evidently taken its toll, as long cracks run down the structure after years of wind and rain.
             You spot a small dusty glass door, half covered by pebbles, but still functional.
             You gently push open the door, and the rusted hinges creak, after being opened for the first time in a long while.
-            Dust falls from the ceiling as if it was going to collapse, but you gently walk in.`;
+            Dust falls from the ceiling as if it was going to collapse, but you gently walk in.`.replaceAll("\n", "");
       },
       actions: [
         {
@@ -385,7 +385,7 @@
             You find a small old-fashioned two-story wooden house.
             It seems to be empty, probably abandoned during whatever apocalypse happened to this place.
             A dusty wooden door, paint peeling, hangs invitingly half-open.
-            The door creaks as you push it open and step in.`;
+            The door creaks as you push it open and step in.`.replaceAll("\n", "");
       },
       actions: [
         {
@@ -411,7 +411,7 @@
             You cannot read any of the illegible print, but you could with a pinch of ash${game2.resources.ash === 0 ? ", but you have none. Maybe come back later." : ". You reach into your pocket and fish out a handful of the powder. Lucky you burnt the wood earlier."}
             You notice a small storage room on the side of a corridor. The combination lock is tight, but rusting at its heart.
             You can hopefully prise it open with a fragment of wood${game2.resources.wood === 0 ? ", but you have none. Maybe come back later." : ". You reach into your pocket and fish out a small piece of wood. Lucky you didn't burn the wood earlier."}
-            `;
+            `.replaceAll("\n", "");
       },
       actions: [
         {
@@ -454,7 +454,7 @@
             You cannot read any of the illegible ink, but you could with a pinch of ash${game2.resources.ash === 0 ? ", but you have none. Maybe come back later." : ". You reach into your pocket and fish out a handful of the powder. Lucky you burnt the wood earlier."}
             In the corner of your eye, you notice a small cabinet. It seems to be locked tight, but the lock is flimsy.
             You can hopefully prise it open with a fragment of wood${game2.resources.wood === 0 ? ", but you have none. Maybe come back later." : ". You reach into your pocket and fish out a small piece of wood. Lucky you didn't burn the wood earlier."}
-            `;
+            `.replaceAll("\n", "");
       },
       actions: [
         {
@@ -509,14 +509,12 @@
     window.localStorage.setItem("game", JSON.stringify(game2));
   }
   function loadGame() {
-    var _a2;
-    return (_a2 = JSON.parse(window.localStorage.getItem("game") || "{}")) !== null && _a2 !== void 0 ? _a2 : structuredClone(gameDefaults);
+    return JSON.parse(window.localStorage.getItem("game") || "{}") ?? structuredClone(gameDefaults);
   }
 
   // src/main.js
-  var _a;
   var game = structuredClone(gameDefaults);
-  (_a = document.getElementById("buttonReset")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
+  document.getElementById("buttonReset")?.addEventListener("click", () => {
     game = structuredClone(gameDefaults);
     saveGame(game);
     console.log("Game resetted");
