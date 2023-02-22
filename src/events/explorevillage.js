@@ -1,5 +1,6 @@
 export default {
     explorevillage_1_center: {
+        id: "explorevillage_1_center",
         text: function (game) {
             return `You walk slowly to the heart of the village. 
             As you go on, houses become bigger and more intact.
@@ -20,6 +21,7 @@ export default {
         ]
     },
     explorevillage_1_edges: {
+        id: "explorevillage_1_edges",
         text: function (game) {
             return `You walk away from the center of the village.
             Survived structures become scarcer and smaller, until the sandy floor gives away to an endless plain of grass.
@@ -40,6 +42,7 @@ export default {
         ]
     },
     explorevillage_2_center: {
+        id: "explorevillage_2_center",
         text: function (game) {
             return `Standing in front of the spire, it towers over you, casting a long, narrow shadow over everything.
             The elements have evidently taken its toll, as long cracks run down the structure after years of wind and rain.
@@ -62,6 +65,7 @@ export default {
         ]
     },
     explorevillage_2_edges: {
+        id: "explorevillage_2_edges",
         text: function (game) {
             return `You are far from the village.
             The mist makes it hard to see far, but you spot what looks like an abandoned house in the distance.
@@ -86,6 +90,7 @@ export default {
         ]
     },
     explorevillage_3_spire: {
+        id: "explorevillage_3_spire",
         text: function (game) {
             return `
             The spire is obviously abandoned, the crumbling walls plastered with gray dust.
@@ -132,6 +137,7 @@ export default {
         ]
     },
     explorevillage_3_house: {
+        id: "explorevillage_3_house",
         text: function (game) {
             return `
             The old house is obviously abandoned, a thick layer of gray dust covering every surface.

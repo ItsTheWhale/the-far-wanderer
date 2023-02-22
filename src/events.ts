@@ -9,6 +9,7 @@ Object.assign(events, ExploreVillageEvents);
 export { events };
 
 export interface eventStruct {
+    id: string;
     text: Function;
     actions: Array<{
         name: Function,

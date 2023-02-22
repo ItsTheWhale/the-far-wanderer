@@ -3,6 +3,7 @@
   // src/events/begin.js
   var begin_default = {
     begin_1: {
+      id: "begin_1",
       text: function(game2) {
         return `You wake up on a hard bed. 
         The room is cold and dark, and you feed a persistent, throbbing pain in your head. 
@@ -29,6 +30,7 @@
       ]
     },
     begin_2: {
+      id: "begin_2",
       text: function(game2) {
         return `You cannot see a single thing in this pitch-black room. 
         You nearly trip on a cracked floor tile, evidently this place has been forsaken for years without maintenance. 
@@ -57,6 +59,7 @@
       ]
     },
     begin_3: {
+      id: "begin_3",
       text: function(game2) {
         return `You rub two pieces of wood together to light a fire. 
         You throw a piece of wood into the smoking tinder, and the licking tongues of flame grab it.
@@ -81,6 +84,7 @@
       ]
     },
     begin_4: {
+      id: "begin_4",
       text: function(game2) {
         return `The storm rages on unabated.
         Water starts to drip from the cracked concrete ceiling, evidence of its disrepair.
@@ -105,6 +109,7 @@
       ]
     },
     begin_5: {
+      id: "begin_5",
       text: function(game2) {
         return `The fire is flickering. 
         You reach for more wood, but only one piece is left.
@@ -139,6 +144,7 @@
       ]
     },
     begin_6_burn: {
+      id: "begin_6_burn",
       text: function(game2) {
         return `You give in to the urge and throw your final piece of wood into the fireplace.
         The fire glows brightly at new fuel.
@@ -175,6 +181,7 @@
       ]
     },
     begin_6_noburn: {
+      id: "begin_6_noburn",
       text: function(game2) {
         return `You resist the temptation and pocket the piece of wood.
         Outside, the torrent of rain is slowing down, the storm abating.
@@ -209,6 +216,7 @@
       ]
     },
     begin_7_stay: {
+      id: "begin_7_stay",
       text: function(game2) {
         return `
         The rain is stopping. Mild rays of sunshine glow through the clouds.
@@ -230,6 +238,7 @@
       ]
     },
     begin_7_leave: {
+      id: "begin_7_leave",
       text: function(game2) {
         return `You carefully step outside into the rain.
         Although you are soaked, the rain is much weaker than before.
@@ -264,6 +273,7 @@
       ]
     },
     begin_8: {
+      id: "begin_8",
       text: function(game2) {
         return `You carefully step outside. 
         The rain has stopped, but any sunshine that penetrates the thick clouds warm little.
@@ -302,6 +312,7 @@
   // src/events/explorevillage.js
   var explorevillage_default = {
     explorevillage_1_center: {
+      id: "explorevillage_1_center",
       text: function(game2) {
         return `You walk slowly to the heart of the village. 
             As you go on, houses become bigger and more intact.
@@ -322,6 +333,7 @@
       ]
     },
     explorevillage_1_edges: {
+      id: "explorevillage_1_edges",
       text: function(game2) {
         return `You walk away from the center of the village.
             Survived structures become scarcer and smaller, until the sandy floor gives away to an endless plain of grass.
@@ -342,6 +354,7 @@
       ]
     },
     explorevillage_2_center: {
+      id: "explorevillage_2_center",
       text: function(game2) {
         return `Standing in front of the spire, it towers over you, casting a long, narrow shadow over everything.
             The elements have evidently taken its toll, as long cracks run down the structure after years of wind and rain.
@@ -364,6 +377,7 @@
       ]
     },
     explorevillage_2_edges: {
+      id: "explorevillage_2_edges",
       text: function(game2) {
         return `You are far from the village.
             The mist makes it hard to see far, but you spot what looks like an abandoned house in the distance.
@@ -388,6 +402,7 @@
       ]
     },
     explorevillage_3_spire: {
+      id: "explorevillage_3_spire",
       text: function(game2) {
         return `
             The spire is obviously abandoned, the crumbling walls plastered with gray dust.
@@ -430,6 +445,7 @@
       ]
     },
     explorevillage_3_house: {
+      id: "explorevillage_3_house",
       text: function(game2) {
         return `
             The old house is obviously abandoned, a thick layer of gray dust covering every surface.
@@ -481,6 +497,7 @@
   // src/settings.js
   var gameDefaults = {
     started: false,
+    previousEvent: "begin_1",
     resources: {
       wood: 2,
       ash: 0
@@ -519,13 +536,13 @@
       actionElem.addEventListener("click", () => {
         const action = event.actions[i].action(game);
         game = action.game;
+        game.previousEvent = event.id;
+        saveGame(game);
         console.log(game);
         loadEvent(events[action.nextEvent]);
       });
       storyActions.appendChild(actionElem);
     }
   }
-  if (!game.started) {
-    loadEvent(events.begin_1);
-  }
+  loadEvent(events[game.previousEvent]);
 })();

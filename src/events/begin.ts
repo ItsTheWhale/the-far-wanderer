@@ -2,6 +2,7 @@ import { gameStruct } from "../settings.js";
 
 export default {
     begin_1: {
+        id: "begin_1",
         text: function (game: gameStruct): string {
             return `You wake up on a hard bed. 
         The room is cold and dark, and you feed a persistent, throbbing pain in your head. 
@@ -31,6 +32,7 @@ export default {
         ]
     },
     begin_2: {
+        id: "begin_2",
         text: function (game: gameStruct): string {
             return `You cannot see a single thing in this pitch-black room. 
         You nearly trip on a cracked floor tile, evidently this place has been forsaken for years without maintenance. 
@@ -62,6 +64,7 @@ export default {
         ]
     },
     begin_3: {
+        id: "begin_3",
         text: function (game: gameStruct): string {
             return `You rub two pieces of wood together to light a fire. 
         You throw a piece of wood into the smoking tinder, and the licking tongues of flame grab it.
@@ -89,6 +92,7 @@ export default {
         ]
     },
     begin_4: {
+        id: "begin_4",
         text: function (game: gameStruct): string {
             return `The storm rages on unabated.
         Water starts to drip from the cracked concrete ceiling, evidence of its disrepair.
@@ -116,6 +120,7 @@ export default {
         ]
     },
     begin_5: {
+        id: "begin_5",
         text: function (game: gameStruct): string {
             return `The fire is flickering. 
         You reach for more wood, but only one piece is left.
@@ -156,6 +161,7 @@ export default {
         ]
     },
     begin_6_burn: {
+        id: "begin_6_burn",
         text: function (game: gameStruct): string {
             return `You give in to the urge and throw your final piece of wood into the fireplace.
         The fire glows brightly at new fuel.
@@ -198,6 +204,7 @@ export default {
         ]
     },
     begin_6_noburn: {
+        id: "begin_6_noburn",
         text: function (game: gameStruct): string {
             return `You resist the temptation and pocket the piece of wood.
         Outside, the torrent of rain is slowing down, the storm abating.
@@ -238,6 +245,7 @@ export default {
         ]
     },
     begin_7_stay: {
+        id: "begin_7_stay",
         text: function (game: gameStruct): string {
             return `
         The rain is stopping. Mild rays of sunshine glow through the clouds.
@@ -262,6 +270,7 @@ export default {
         ]
     },
     begin_7_leave: {
+        id: "begin_7_leave",
         text: function (game: gameStruct): string {
             return `You carefully step outside into the rain.
         Although you are soaked, the rain is much weaker than before.
@@ -302,6 +311,7 @@ export default {
         ]
     },
     begin_8: {
+        id: "begin_8",
         text: function (game: gameStruct): string {
             return `You carefully step outside. 
         The rain has stopped, but any sunshine that penetrates the thick clouds warm little.

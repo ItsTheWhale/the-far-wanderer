@@ -31,6 +31,8 @@ function loadEvent(event: eventStruct): void {
         actionElem.addEventListener("click", () => {
             const action = event.actions[i].action(game);
             game = action.game;
+            game.previousEvent = event.id;
+            saveGame(game);
             console.log(game);
             // @ts-ignore
             loadEvent(events[action.nextEvent]);
@@ -39,7 +41,6 @@ function loadEvent(event: eventStruct): void {
     }
 }
 
-if (!game.started) {
-    // @ts-ignore
-    loadEvent(events.begin_1);
-}
+
+// @ts-ignore
+loadEvent(events[game.previousEvent]);
