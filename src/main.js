@@ -1,5 +1,5 @@
 import { events } from "./events.js";
-import { saveGame, loadGame } from "./save.js";
+import { saveGame, loadGame, exportGame } from "./save.js";
 import { gameDefaults } from "./settings.js";
 let game = structuredClone(gameDefaults);
 // Nav
@@ -8,6 +8,10 @@ document.getElementById("buttonReset")?.addEventListener("click", () => {
     saveGame(game);
     console.log("Game resetted");
     window.location.reload();
+});
+document.getElementById("buttonExport")?.addEventListener("click", () => {
+    exportGame(game);
+    console.log("Game exported");
 });
 // Settings
 Object.assign(game, loadGame());

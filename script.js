@@ -511,6 +511,12 @@
   function loadGame() {
     return JSON.parse(window.localStorage.getItem("game") || "{}") ?? structuredClone(gameDefaults);
   }
+  function exportGame(game2) {
+    const exportElem = document.createElement("a");
+    exportElem.setAttribute("download", "thefarwanderersave" + Date.now() + ".json");
+    exportElem.setAttribute("href", "data:application/json," + JSON.stringify(game2));
+    exportElem.dispatchEvent(new MouseEvent("click"));
+  }
 
   // src/main.js
   var game = structuredClone(gameDefaults);
@@ -519,6 +525,10 @@
     saveGame(game);
     console.log("Game resetted");
     window.location.reload();
+  });
+  document.getElementById("buttonExport")?.addEventListener("click", () => {
+    exportGame(game);
+    console.log("Game exported");
   });
   Object.assign(game, loadGame());
   function loadEvent(event) {

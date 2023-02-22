@@ -9,5 +9,8 @@ export function loadGame(): gameStruct {
 }
 
 export function exportGame(game: gameStruct): void {
-
+    const exportElem = document.createElement("a");
+    exportElem.setAttribute("download", "thefarwanderersave" + Date.now() + ".json");
+    exportElem.setAttribute("href", "data:application/json," + JSON.stringify(game));
+    exportElem.dispatchEvent(new MouseEvent("click"));
 }

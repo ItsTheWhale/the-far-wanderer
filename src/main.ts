@@ -12,6 +12,11 @@ document.getElementById("buttonReset")?.addEventListener("click", () => {
     window.location.reload();
 });
 
+document.getElementById("buttonExport")?.addEventListener("click", () => {
+    exportGame(game);
+    console.log("Game exported");
+});
+
 // Settings
 
 Object.assign(game, loadGame());
