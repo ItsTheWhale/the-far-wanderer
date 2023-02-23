@@ -54,7 +54,6 @@ export default {
                     game: gameStruct,
                     nextEvent: any
                 } {
-                    game.resources.wood = 4;
                     return {
                         game,
                         nextEvent: "begin_3"
@@ -82,7 +81,6 @@ export default {
                     game: gameStruct,
                     nextEvent: any
                 } {
-                    game.resources.wood--;
                     return {
                         game,
                         nextEvent: "begin_4"
@@ -110,7 +108,6 @@ export default {
                     game: gameStruct,
                     nextEvent: any
                 } {
-                    game.resources.wood--;
                     return {
                         game,
                         nextEvent: "begin_5"
@@ -136,7 +133,6 @@ export default {
                     game: gameStruct,
                     nextEvent: any
                 } {
-                    game.resources.wood--;
                     game.resources.ash++;
                     return {
                         game,
@@ -152,6 +148,7 @@ export default {
                     game: gameStruct,
                     nextEvent: any
                 } {
+                    game.resources.wood++;
                     return {
                         game,
                         nextEvent: "begin_6_noburn"

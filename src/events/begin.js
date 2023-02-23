@@ -46,7 +46,6 @@ export default {
                     return "stoke the fire";
                 },
                 action: function (game) {
-                    game.resources.wood = 4;
                     return {
                         game,
                         nextEvent: "begin_3"
@@ -71,7 +70,6 @@ export default {
                     return "stoke the fire";
                 },
                 action: function (game) {
-                    game.resources.wood--;
                     return {
                         game,
                         nextEvent: "begin_4"
@@ -96,7 +94,6 @@ export default {
                     return "stoke the fire";
                 },
                 action: function (game) {
-                    game.resources.wood--;
                     return {
                         game,
                         nextEvent: "begin_5"
@@ -119,7 +116,6 @@ export default {
                     return "stoke the fire";
                 },
                 action: function (game) {
-                    game.resources.wood--;
                     game.resources.ash++;
                     return {
                         game,
@@ -132,6 +128,7 @@ export default {
                     return "save the wood";
                 },
                 action: function (game) {
+                    game.resources.wood++;
                     return {
                         game,
                         nextEvent: "begin_6_noburn"
