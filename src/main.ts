@@ -1,5 +1,5 @@
 import { events, eventStruct } from "./events.js";
-import { saveGame, loadGame, exportGame } from "./save.js";
+import { saveGame, loadGame, exportGame, importGame } from "./save.js";
 import { gameStruct, gameDefaults } from "./settings.js";
 
 let game: gameStruct = structuredClone(gameDefaults);
@@ -9,6 +9,13 @@ document.getElementById("buttonReset")?.addEventListener("click", () => {
     game = structuredClone(gameDefaults);
     saveGame(game);
     console.log("Game resetted");
+    window.location.reload();
+});
+
+document.getElementById("buttonLoad")?.addEventListener("click", async () => {
+    game = await importGame();
+    saveGame(game);
+    console.log("Game imported");
     window.location.reload();
 });
 

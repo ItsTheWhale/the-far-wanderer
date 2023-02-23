@@ -511,6 +511,27 @@
   function loadGame() {
     return JSON.parse(window.localStorage.getItem("game") || "{}") ?? structuredClone(gameDefaults);
   }
+  async function importGame() {
+    return new Promise((resolve, reject) => {
+      const importElem = document.createElement("input");
+      importElem.setAttribute("type", "file");
+      importElem.setAttribute("accept", "application/json");
+      importElem.dispatchEvent(new MouseEvent("click"));
+      importElem.addEventListener("change", () => {
+        const file = importElem.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.readAsText(file, "UTF-8");
+          reader.addEventListener("load", (event) => {
+            resolve(JSON.parse(event.target.result) ?? structuredClone(gameDefaults));
+          });
+          reader.addEventListener("error", (event) => {
+            window.alert("Error loading file.");
+          });
+        }
+      });
+    });
+  }
   function exportGame(game2) {
     const exportElem = document.createElement("a");
     exportElem.setAttribute("download", "thefarwanderersave" + Date.now() + ".json");
@@ -524,6 +545,12 @@
     game = structuredClone(gameDefaults);
     saveGame(game);
     console.log("Game resetted");
+    window.location.reload();
+  });
+  document.getElementById("buttonLoad")?.addEventListener("click", async () => {
+    game = await importGame();
+    saveGame(game);
+    console.log("Game imported");
     window.location.reload();
   });
   document.getElementById("buttonExport")?.addEventListener("click", () => {
